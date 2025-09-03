@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
-class CurrencyConverterMaterialPage extends StatefulWidget {
-  const CurrencyConverterMaterialPage({super.key});
+class CurrencyConverterCupertinoPage extends StatefulWidget {
+  const CurrencyConverterCupertinoPage({Key? key}) : super(key: key);
 
   @override
-  State<CurrencyConverterMaterialPage> createState() =>
-      _CurrencyConverterMaterialPageState();
+  State<CurrencyConverterCupertinoPage> createState() =>
+      _CurrencyConverterCupertinoPageState();
 }
 
-class _CurrencyConverterMaterialPageState
-    extends State<CurrencyConverterMaterialPage> {
+class _CurrencyConverterCupertinoPageState
+    extends State<CurrencyConverterCupertinoPage> {
   double result = 0;
   final TextEditingController textEditingController = TextEditingController();
   void convert() {
@@ -29,14 +29,13 @@ class _CurrencyConverterMaterialPageState
       ),
       borderRadius: BorderRadius.circular(5),
     );
-    return Scaffold(
-      backgroundColor: Colors.blueGrey,
-      appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        elevation: 0,
-        title: const Text('Currency Converter'),
+    return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.systemGrey3,
+      navigationBar: const CupertinoNavigationBar(
+        backgroundColor: CupertinoColors.systemGrey3,
+        middle: const Text('Currency Converter'),
       ),
-      body: Center(
+      child: Center(
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Column(
@@ -50,23 +49,18 @@ class _CurrencyConverterMaterialPageState
                   color: Color.fromARGB(255, 255, 255, 255),
                 ),
               ),
-              TextField(
+              CupertinoTextField(
                 controller: textEditingController,
                 style: const TextStyle(
-                  color: Colors.black,
+                  color: CupertinoColors.black,
                 ),
-                decoration: InputDecoration(
-                  hintText: 'Please enter the amount in USD',
-                  hintStyle: const TextStyle(
-                    color: Colors.black,
-                  ),
-                  prefixIcon: const Icon(Icons.monetization_on_outlined),
-                  prefixIconColor: Colors.black,
-                  filled: true,
-                  fillColor: Colors.white,
-                  focusedBorder: border,
-                  enabledBorder: border,
+                decoration: BoxDecoration(
+                  color: CupertinoColors.white,
+                  border: Border.all(),
+                  borderRadius: BorderRadius.circular(5),
                 ),
+                placeholder: 'Please enter the amount in USD',
+                prefix: const Icon(CupertinoIcons.money_dollar),
                 keyboardType: const TextInputType.numberWithOptions(
                   decimal: true,
                 ),
