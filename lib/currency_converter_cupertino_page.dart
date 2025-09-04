@@ -20,15 +20,6 @@ class _CurrencyConverterCupertinoPageState
 
   @override
   Widget build(BuildContext context) {
-    final border = OutlineInputBorder(
-      borderSide: const BorderSide(
-        color: Colors.black,
-        width: 2.0,
-        style: BorderStyle.solid,
-        strokeAlign: BorderSide.strokeAlignOutside,
-      ),
-      borderRadius: BorderRadius.circular(5),
-    );
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGrey3,
       navigationBar: const CupertinoNavigationBar(
@@ -66,16 +57,9 @@ class _CurrencyConverterCupertinoPageState
                 ),
               ),
               const SizedBox(height: 10),
-              ElevatedButton(
+              CupertinoButton(
                 onPressed: convert,
-                style: TextButton.styleFrom(
-                  backgroundColor: Colors.black,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                ),
+                color: CupertinoColors.black,
                 child: const Text('Convert'),
               ),
             ],
